@@ -62,8 +62,6 @@ public class GoogleStepDefinitions {
 
     @When("User searches {string}")
     public void userSearches(String searchValue) {
-        //creating the page object
-        GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
         //sending value into search box using page object
         googleSearchPage.searchBox.sendKeys(searchValue + Keys.ENTER);
@@ -77,4 +75,41 @@ public class GoogleStepDefinitions {
 
         Assert.assertEquals(actualTitle, expectedTitle);
     }
+
+    @Then("User should see About link")
+    public void userShouldSeeAboutLink() {
+        //asserting that about link is displayed
+        Assert.assertTrue(googleSearchPage.aboutLink.isDisplayed());
+    }
+
+    @And("User click to About link")
+    public void userClickToAboutLink() {
+        //clicking to about link
+        googleSearchPage.aboutLink.click();
+    }
+
+    @Then("User should see tittle Google - About Google, Our Culture & Company News")
+    public void userShouldSeeTittleGoogleAboutGoogleOurCultureCompanyNews() {
+
+        String expectedTitle = "Google - About Google, Our Culture & Company News";
+        String actualTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals(actualTitle,expectedTitle);
+
+    }
+
+    @Then("User should see six links in the footer")
+    public void user_should_see_six_links_in_the_footer(List<String> linkStrings) {
+
+        int expectedSize = linkStrings.size();
+        int actualSize = googleSearchPage.footLinks.size();
+
+        System.out.println("linkStrings = " + linkStrings);
+
+        Assert.assertEquals(actualSize,expectedSize);
+
+
+
+    }
+
 }

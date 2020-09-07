@@ -12,7 +12,26 @@ Feature: Search
     When User searches apple
     Then User should see apple in the title
 
-  @wip
+
   Scenario: Google title verification after search
-    When User searches "peach"
-    Then User should see "peach" in the title
+    When User searches "broccoli"
+    Then User should see "broccoli" in the title
+
+  @wip
+  Scenario: Google -About- link page title verification
+    Then User should see About link
+    And User click to About link
+    Then User should see tittle Google - About Google, Our Culture & Company News
+
+  @googleTable
+  Scenario: Google search page footer links verification
+    Then User should see six links in the footer
+      | Advertising      |
+      | Business         |
+      | How Search Works |
+      | Privacy          |
+      | Terms            |
+      | Settings         |
+    #BREAK UNTIL 3.07PM EST
+    #command option L
+    #control alt L
