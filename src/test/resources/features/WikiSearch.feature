@@ -7,11 +7,11 @@ Feature: Wiki title and search verifications
 
   Scenario: Search functionality title verification
     When User searches "Steve Jobs" in the wiki search page
-    Then User should see "Steve jobs" in the Wiki title
+    Then User should see "Steve Jobs" in the wiki title
 
-    Scenario: Search functionality header verification
-      When User searches "Steve Jobs" in the wiki search page
-      Then User should see "Steve sdsdfs" in the main header
+  Scenario: Search functionality header verification
+    When User searches "Steve Jobs" in the wiki search page
+    Then User should see "Steve Jobs" in the main header
 
   @wikiScenarioOutline
   Scenario Outline: Search functionality header verification
@@ -22,6 +22,16 @@ Feature: Wiki title and search verifications
 
     Examples: example test data for wikipedia search
       | searchValue     | expectedTitle   | expectedMainHeader | expectedImageHeader |
+      | Steve Jobs      | Steve Jobs      | Steve Jobs         | Steve Jobs          |
+      | John Travolta   | John Travolta   | John Travolta      | John Travolta       |
+      | Albert Einstein | Albert Einstein | Albert Einstein    | Albert Einstein     |
+      | Keanu Reeves    | Keanu Reeves    | Keanu Reeves       | Keanu Reeves        |
+      | Bruce Lee       | Bruce Lee       | Bruce Lee          | Bruce Lee           |
+      | Dua Lipa        | Dua Lipa        | Dua Lipa           | Dua Lipa            |
+      | Thomas Edison   | Thomas Edison   | Thomas Edison      | Thomas Edison       |
+      | Sam Heughan     | Sam Heughan     | Sam Heughan        | Sam Heughan         |
+      | Captain America | Captain America | Captain America    | Captain America     |
+      | Beyonce         | Beyonce         | Beyonce            | Beyonce             |
       | Steve Jobs      | Steve Jobs      | Steve Jobs         | Steve Jobs          |
       | John Travolta   | John Travolta   | John Travolta      | John Travolta       |
       | Albert Einstein | Albert Einstein | Albert Einstein    | Albert Einstein     |
